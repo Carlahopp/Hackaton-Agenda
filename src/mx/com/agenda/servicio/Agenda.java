@@ -69,7 +69,6 @@ public class Agenda implements OperacionesAgenda {
         }
     }
 
-    @Override
     public void buscaContacto(String nombre) {
         if (nombre == null) return;
 
@@ -82,13 +81,12 @@ public class Agenda implements OperacionesAgenda {
         System.out.println("El contacto '" + nombre + "' no existe en la agenda.");
     }
 
-    @Override
     public void eliminarContacto(Contacto c) {
         if (c == null || c.getNombre() == null) return;
 
         for (int i = 0; i < contactos.length; i++) {
             if (contactos[i] != null && contactos[i].getNombre().equalsIgnoreCase(c.getNombre())) {
-                contactos[i] = null; // Eliminamos la referencia
+                contactos[i] = null;
                 contadorContactos--;
                 System.out.println("El contacto '" + c.getNombre() + "' se ha eliminado de la agenda.");
                 return;
